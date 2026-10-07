@@ -1,0 +1,58 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e3]:
+    - generic [ref=f1e6]:
+      - list [ref=f1e8]:
+        - listitem [ref=f1e9]:
+          - link "Edu CRM Менеджер" [ref=f1e10] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f1e17]:
+              - generic [ref=f1e18]: Edu CRM
+              - generic [ref=f1e19]: Менеджер
+      - generic [ref=f1e21]:
+        - generic [ref=f1e22]: Меню
+        - list [ref=f1e24]:
+          - listitem [ref=f1e25]:
+            - link "Главная" [ref=f1e26] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f1e31]:
+            - link "Дашборд" [ref=f1e32] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=f1e39]:
+            - link "Ученики" [ref=f1e40] [cursor=pointer]:
+              - /url: /students
+          - listitem [ref=f1e45]:
+            - link "Группы" [ref=f1e46] [cursor=pointer]:
+              - /url: /groups
+          - listitem [ref=f1e50]:
+            - link "Преподаватели" [ref=f1e51] [cursor=pointer]:
+              - /url: /teachers
+          - listitem [ref=f1e57]:
+            - link "Финансы" [ref=f1e58] [cursor=pointer]:
+              - /url: /finance
+          - listitem [ref=f1e63]:
+            - link "Отзывы" [ref=f1e64] [cursor=pointer]:
+              - /url: /feedback
+      - list [ref=f1e69]:
+        - listitem [ref=f1e70]:
+          - button "RR Risolat Ravshanova Менеджер" [ref=f1e71]:
+            - generic [ref=f1e72]: RR
+            - generic [ref=f1e74]:
+              - generic [ref=f1e75]: Risolat Ravshanova
+              - generic [ref=f1e76]: Менеджер
+      - button "Toggle Sidebar" [ref=f1e80]
+    - main [ref=f1e81]:
+      - generic [ref=f1e82]:
+        - button "Toggle Sidebar" [ref=f1e83]
+        - generic [ref=f1e85]: Менеджер
+        - button "Язык" [ref=f1e87]: RU
+      - generic [ref=f1e89]:
+        - generic [ref=f1e90]:
+          - generic [ref=f1e91]:
+            - generic [ref=f1e92]:
+              - heading "Ученики" [level=1] [ref=f1e93]
+              - generic [ref=f1e94]: Полный доступ
+            - paragraph [ref=f1e95]: База учеников и их статус
+          - button "Добавить ученика" [ref=f1e97]
+        - alert [ref=f1e98]:
+          - generic [ref=f1e103]: Вы привязаны к филиалу — здесь только его данные.
+  - button "Open Tanstack query devtools" [ref=f1e161] [cursor=pointer]
