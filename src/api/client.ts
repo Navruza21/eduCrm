@@ -3,7 +3,8 @@ import { useAuthStore } from '@/stores/auth-store'
 import { ApiError, isApiError } from './errors'
 import type { ApiErrorBody, PageParams, Paginated, TokenRefreshResponse } from './types'
 
-const BASE_URL = import.meta.env.VITE_API_URL || '/api/v1'
+// const BASE_URL = import.meta.env.VITE_API_URL || '/api/v1'
+const BASE_URL = 'https://edu.thesofmebel.uz/crm/api/v1'
 
 /**
  * In dev only the path is kept (`https://host/crm/api/v1` → `/crm/api/v1`): the browser calls

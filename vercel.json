@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/crm/api/v1/:path*", "destination": "https://edu.thesofmebel.uz/crm/api/v1/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
