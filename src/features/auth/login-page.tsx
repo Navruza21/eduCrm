@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { School } from 'lucide-react'
 import type { FormEvent } from 'react'
 import { Navigate, useLocation } from 'react-router'
 import { signIn } from '@/api/auth'
 import { isApiError } from '@/api/errors'
 import type { LoginRequest } from '@/api/types'
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -74,9 +74,7 @@ export function LoginPage() {
       <main className="flex flex-1 justify-center px-4 pb-10 md:items-center">
         <Card className="w-full max-w-sm self-start md:self-auto">
           <CardHeader>
-            <div className="mb-2 flex size-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <School className="size-5" />
-            </div>
+            <Logo className="mb-2 size-12" />
             <CardTitle className="text-xl">{t.auth.title}</CardTitle>
             <CardDescription>{t.auth.subtitle}</CardDescription>
           </CardHeader>

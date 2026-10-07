@@ -205,6 +205,8 @@ export type Teacher = {
   active_student_count: number
   /** This month's payments in the teacher's groups. */
   monthly_revenue: Decimal
+  /** Not in the API yet — requested from the backend; until then the dashboard shows "no data". */
+  is_certified?: boolean
   created_at: DateTime
   updated_at: DateTime
 }

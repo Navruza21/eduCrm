@@ -1,6 +1,7 @@
-import { ChevronsUpDown, House, LogOut, School, UserRound } from 'lucide-react'
+import { ChevronsUpDown, House, LogOut, UserRound } from 'lucide-react'
 import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
+import { Logo } from '@/components/logo'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -61,9 +62,7 @@ export function AppSidebar() {
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
                 <NavLink to="/" onClick={() => setOpenMobile(false)}>
-                  <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                    <School className="size-4" />
-                  </div>
+                  <Logo className="size-8" />
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">Edu CRM</span>
                     <span className="truncate text-xs text-muted-foreground">

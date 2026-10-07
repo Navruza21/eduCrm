@@ -12,6 +12,7 @@ import type {
 export const invoicesApi = {
   /** `?status=pending|partial|paid|cancelled`, `?overdue=true`. */
   list: (params: InvoiceListParams = {}) => requestPage<Invoice>('/payments/invoices/', params),
+  all: () => fetchAllPages<Invoice>('/payments/invoices/'),
   get: (id: UUID) => request<Invoice>(`/payments/invoices/${id}/`),
   create: (body: InvoiceCreate) => request<Invoice>('/payments/invoices/', { method: 'POST', body }),
   /** For fixing mistakes: the invoice becomes `cancelled`. */
@@ -29,6 +30,7 @@ export const invoiceQueries = {
       queryFn: () => invoicesApi.list(params),
       placeholderData: keepPreviousData,
     }),
+  all: () => queryOptions({ queryKey: ['invoices', 'all'], queryFn: () => invoicesApi.all() }),
   detail: (id: UUID) => queryOptions({ queryKey: ['invoices', id], queryFn: () => invoicesApi.get(id) }),
   payments: (invoiceId: UUID) =>
     queryOptions({

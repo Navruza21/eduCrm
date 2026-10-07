@@ -125,15 +125,20 @@ export async function requestPage<T>(
   return { count: data.length, next: null, previous: null, results }
 }
 
-/** Walks every page of a list endpoint — for small catalogs used in selects and name lookups. */
+/**
+ * Every row of a list endpoint — for name lookups and dashboard totals. The first page tells
+ * how many pages there are; the rest are loaded in parallel.
+ */
 export async function fetchAllPages<T>(path: string, query?: RequestOptions['query']): Promise<T[]> {
-  const rows: T[] = []
-  for (let page = 1; ; page++) {
-    const data = await request<Paginated<T> | T[]>(path, {
-      query: { ...query, page, page_size: MAX_PAGE_SIZE },
-    })
-    if (Array.isArray(data)) return data
-    rows.push(...data.results)
-    if (!data.next) return rows
-  }
+  const fetchPage = (page: number) =>
+    request<Paginated<T> | T[]>(path, { query: { ...query, page, page_size: MAX_PAGE_SIZE } })
+
+  const first = await fetchPage(1)
+  if (Array.isArray(first)) return first
+  if (!first.next) return first.results
+
+  // The server may cap page_size below the one asked for — count pages by what it returned.
+  const pageCount = Math.ceil(first.count / first.results.length)
+  const rest = await Promise.all(Array.from({ length: pageCount - 1 }, (_, i) => fetchPage(i + 2)))
+  return [first, ...rest].flatMap((data) => (Array.isArray(data) ? data : data.results))
 }
