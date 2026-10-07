@@ -3,9 +3,10 @@ import { useEffect, type ReactNode } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router'
 import { authQueries } from '@/api/auth'
 import type { ModuleId } from '@/config/modules'
-import { ForbiddenPage } from '@/features/errors/status-pages'
+import { homePath } from '@/config/permissions'
+import { ForbiddenPage, NoModulesPage } from '@/features/errors/status-pages'
 import { useAuthStore } from '@/stores/auth-store'
-import { useAccess } from './hooks'
+import { useAccess, useSession } from './hooks'
 
 export function RequireAuth() {
   const session = useAuthStore((state) => state.session)
@@ -30,6 +31,12 @@ function SyncUser() {
   }, [data, setUser])
 
   return null
+}
+
+/** `/` has no page of its own — it opens the role's first module. */
+export function HomeRedirect() {
+  const path = homePath(useSession().user.role)
+  return path ? <Navigate to={path} replace /> : <NoModulesPage />
 }
 
 /** Hides the page itself; the API answers 403 for the data as well. */

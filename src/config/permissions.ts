@@ -1,5 +1,5 @@
 import { Ban, CircleCheck, Eye } from 'lucide-react'
-import { MODULES, type ModuleId } from './modules'
+import { MODULE_META, MODULES, type ModuleId } from './modules'
 import type { Role } from './roles'
 
 /** full — read and write · view — read only · none — closed. */
@@ -42,6 +42,12 @@ export function canEdit(role: Role, module: ModuleId): boolean {
 
 export function accessibleModules(role: Role): ModuleId[] {
   return MODULES.filter((module) => canAccess(role, module))
+}
+
+/** Where `/` leads: the role's first open module — the dashboard for most roles. */
+export function homePath(role: Role): string | undefined {
+  const module = accessibleModules(role)[0]
+  return module && MODULE_META[module].path
 }
 
 export const ACCESS_ICONS = { full: CircleCheck, view: Eye, none: Ban }

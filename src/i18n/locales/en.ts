@@ -92,19 +92,13 @@ export const en: Dictionary = {
     centers: 'Onboarding centers and their directors',
   },
   nav: {
-    home: 'Home',
     menu: 'Menu',
     profile: 'Profile',
-  },
-  home: {
-    welcome: (name: string) => `Welcome, ${name}!`,
-    yourAccess: 'Your sections',
-    yourAccessHint: 'Sections open to your role.',
-    noModules: 'There are no sections for your role yet. The leads module comes in the next phase.',
   },
   errors: {
     forbiddenTitle: 'No access',
     forbiddenText: 'Your role has no access to this section.',
+    noModules: 'There are no sections for your role yet. The leads module comes in the next phase.',
     notFoundTitle: 'Page not found',
     notFoundText: 'This page does not exist.',
     backHome: 'Back to home',
@@ -116,6 +110,7 @@ export const en: Dictionary = {
     description: 'Your details in the system',
   },
   dashboard: {
+    welcome: (name: string) => `Welcome, ${name}!`,
     period: (month: string) => `Period: ${month}`,
     kpi: {
       monthlyRevenue: 'Revenue this month',

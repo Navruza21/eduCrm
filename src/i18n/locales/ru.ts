@@ -91,19 +91,13 @@ export const ru = {
     centers: 'Подключение центров и их руководителей',
   },
   nav: {
-    home: 'Главная',
     menu: 'Меню',
     profile: 'Профиль',
-  },
-  home: {
-    welcome: (name: string) => `Здравствуйте, ${name}!`,
-    yourAccess: 'Ваши разделы',
-    yourAccessHint: 'Разделы, открытые для вашей роли.',
-    noModules: 'Для вашей роли пока нет разделов. Модуль лидов появится на следующем этапе.',
   },
   errors: {
     forbiddenTitle: 'Нет доступа',
     forbiddenText: 'У вашей роли нет доступа к этому разделу.',
+    noModules: 'Для вашей роли пока нет разделов. Модуль лидов появится на следующем этапе.',
     notFoundTitle: 'Страница не найдена',
     notFoundText: 'Такой страницы нет.',
     backHome: 'На главную',
@@ -115,6 +109,7 @@ export const ru = {
     description: 'Ваши данные в системе',
   },
   dashboard: {
+    welcome: (name: string) => `Здравствуйте, ${name}!`,
     period: (month: string) => `Период: ${month}`,
     kpi: {
       monthlyRevenue: 'Поступления за месяц',

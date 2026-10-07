@@ -2,7 +2,7 @@ import type { ComponentType } from 'react'
 import { createBrowserRouter } from 'react-router'
 import { AppLayout } from '@/components/layout/app-layout'
 import { MODULE_META, MODULES, type ModuleId } from '@/config/modules'
-import { RequireAuth, RequireModule } from '@/features/auth/guards'
+import { HomeRedirect, RequireAuth, RequireModule } from '@/features/auth/guards'
 import { LoginPage } from '@/features/auth/login-page'
 import { CentersPage } from '@/features/centers/centers-page'
 import { DashboardPage } from '@/features/dashboard/dashboard-page'
@@ -12,7 +12,6 @@ import { PUBLIC_FEEDBACK_PATH } from '@/features/feedback/links'
 import { PublicFeedbackPage } from '@/features/feedback/public-feedback-page'
 import { FinancePage } from '@/features/finance/finance-page'
 import { GroupsPage } from '@/features/groups/groups-page'
-import { HomePage } from '@/features/home/home-page'
 import { SettingsPage } from '@/features/settings/settings-page'
 import { StudentsPage } from '@/features/students/students-page'
 import { TeachersPage } from '@/features/teachers/teachers-page'
@@ -38,7 +37,7 @@ export const router = createBrowserRouter([
       {
         element: <AppLayout />,
         children: [
-          { index: true, element: <HomePage /> },
+          { index: true, element: <HomeRedirect /> },
           ...MODULES.map((module) => {
             const Page = MODULE_PAGES[module]
             return {

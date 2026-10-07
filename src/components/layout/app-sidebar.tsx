@@ -1,4 +1,4 @@
-import { ChevronsUpDown, House, LogOut, UserRound } from 'lucide-react'
+import { ChevronsUpDown, LogOut, UserRound } from 'lucide-react'
 import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
 import { Logo } from '@/components/logo'
@@ -43,16 +43,11 @@ export function AppSidebar() {
   const name = displayName(user)
 
   // The menu is built from the permission matrix: closed modules never show up.
-  const items = [
-    { id: 'home', label: t.nav.home, path: '/', icon: House },
-    ...accessibleModules(user.role).map((module) => ({
-      id: module,
-      label: t.modules[module],
-      ...MODULE_META[module],
-    })),
-  ]
-
-  const isActive = (path: string) => (path === '/' ? pathname === '/' : pathname.startsWith(path))
+  const items = accessibleModules(user.role).map((module) => ({
+    id: module,
+    label: t.modules[module],
+    ...MODULE_META[module],
+  }))
 
   return (
     <>
@@ -82,7 +77,7 @@ export function AppSidebar() {
               <SidebarMenu>
                 {items.map((item) => (
                   <SidebarMenuItem key={item.id}>
-                    <SidebarMenuButton asChild isActive={isActive(item.path)} tooltip={item.label}>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith(item.path)} tooltip={item.label}>
                       <NavLink to={item.path} onClick={() => setOpenMobile(false)}>
                         <item.icon />
                         <span>{item.label}</span>

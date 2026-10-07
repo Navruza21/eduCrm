@@ -92,19 +92,13 @@ export const uz: Dictionary = {
     centers: 'Markazlarni va ularning rahbarlarini ulash',
   },
   nav: {
-    home: 'Bosh sahifa',
     menu: 'Menyu',
     profile: 'Profil',
-  },
-  home: {
-    welcome: (name: string) => `Xush kelibsiz, ${name}!`,
-    yourAccess: "Sizning bo'limlaringiz",
-    yourAccessHint: "Rolingiz uchun ochiq bo'limlar.",
-    noModules: "Rolingiz uchun hozircha bo'lim yo'q. Lidlar moduli keyingi bosqichda paydo bo'ladi.",
   },
   errors: {
     forbiddenTitle: "Ruxsat yo'q",
     forbiddenText: "Sizning rolingiz bu bo'limga kira olmaydi.",
+    noModules: "Rolingiz uchun hozircha bo'lim yo'q. Lidlar moduli keyingi bosqichda paydo bo'ladi.",
     notFoundTitle: 'Sahifa topilmadi',
     notFoundText: 'Bunday sahifa mavjud emas.',
     backHome: 'Bosh sahifaga',
@@ -116,6 +110,7 @@ export const uz: Dictionary = {
     description: "Tizimdagi ma'lumotlaringiz",
   },
   dashboard: {
+    welcome: (name: string) => `Xush kelibsiz, ${name}!`,
     period: (month: string) => `Davr: ${month}`,
     kpi: {
       monthlyRevenue: 'Oylik tushum',

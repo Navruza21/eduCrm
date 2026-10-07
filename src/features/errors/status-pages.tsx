@@ -3,7 +3,17 @@ import { Link } from 'react-router'
 import { Button } from '@/components/ui/button'
 import { useT } from '@/i18n'
 
-function StatusPage({ icon: Icon, title, text }: { icon: LucideIcon; title: string; text: string }) {
+function StatusPage({
+  icon: Icon,
+  title,
+  text,
+  backLink = true,
+}: {
+  icon: LucideIcon
+  title: string
+  text: string
+  backLink?: boolean
+}) {
   const t = useT()
 
   return (
@@ -13,9 +23,11 @@ function StatusPage({ icon: Icon, title, text }: { icon: LucideIcon; title: stri
       </div>
       <h1 className="text-xl font-semibold">{title}</h1>
       <p className="text-sm text-muted-foreground">{text}</p>
-      <Button asChild variant="outline">
-        <Link to="/">{t.errors.backHome}</Link>
-      </Button>
+      {backLink && (
+        <Button asChild variant="outline">
+          <Link to="/">{t.errors.backHome}</Link>
+        </Button>
+      )}
     </div>
   )
 }
@@ -23,6 +35,12 @@ function StatusPage({ icon: Icon, title, text }: { icon: LucideIcon; title: stri
 export function ForbiddenPage() {
   const t = useT()
   return <StatusPage icon={Lock} title={t.errors.forbiddenTitle} text={t.errors.forbiddenText} />
+}
+
+/** `/` for a role with no open modules (sales, until the leads module ships) — nowhere to go back to. */
+export function NoModulesPage() {
+  const t = useT()
+  return <StatusPage icon={Lock} title={t.errors.forbiddenTitle} text={t.errors.noModules} backLink={false} />
 }
 
 export function NotFoundPage() {

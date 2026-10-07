@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useErrorText } from '@/hooks/use-error-text'
 import { useT } from '@/i18n'
 import { BranchAnalytics } from './branch-analytics'
+import { DashboardGreeting } from './dashboard-greeting'
 import { DashboardHero } from './dashboard-hero'
 import { KpiTiles } from './kpi-tiles'
 import { useDashboardStats } from './use-dashboard-stats'
@@ -23,6 +24,7 @@ export function DashboardPage() {
 
   return (
     <>
+      <DashboardGreeting />
       <PageHeader module="dashboard" />
       <QueryView query={query}>
         {(summary) => (
