@@ -78,6 +78,7 @@ export const uz: Dictionary = {
     teachers: "O'qituvchilar",
     finance: 'Moliya',
     feedback: 'Fikr-mulohazalar',
+    branches: 'Filiallar',
     settings: 'Sozlamalar',
     centers: "O'quv markazlari",
   },
@@ -88,7 +89,8 @@ export const uz: Dictionary = {
     teachers: "O'qituvchilar va ularning yuklamasi",
     finance: "Hisob-fakturalar, to'lovlar va qarzlar",
     feedback: "O'quvchi va ota-onalarning fikrlari",
-    settings: 'Markaz, filiallar, kurslar va xodimlar',
+    branches: "Markaz filiallari: kontaktlar, o'quvchilar, o'qituvchilar va guruhlar",
+    settings: 'Markaz, kurslar va xodimlar',
     centers: 'Markazlarni va ularning rahbarlarini ulash',
   },
   nav: {
@@ -292,8 +294,6 @@ export const uz: Dictionary = {
     subscriptionTiers: {
       basic: 'Asosiy',
     },
-    branches: 'Filiallar',
-    addBranch: "Filial qo'shish",
     courses: 'Kurslar',
     addCourse: "Kurs qo'shish",
     courseHint: 'Kurs nomi markazda takrorlanmasligi kerak',
@@ -306,6 +306,9 @@ export const uz: Dictionary = {
     matrix: 'Rollar huquqlari',
     matrixHint: 'Kim nimaga kira oladi. Huquqlarni server tekshiradi.',
     module: "Bo'lim",
+  },
+  branches: {
+    add: "Filial qo'shish",
   },
   centers: {
     add: 'Markaz ulash',

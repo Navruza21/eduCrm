@@ -66,7 +66,7 @@ export function useCourseLookup(): Lookup {
 
 /** Branches are read through center.manage_own — director only. */
 export function useBranchLookup(): Lookup {
-  const available = useCanAccess('settings')
+  const available = useCanAccess('branches')
   const { data, isPending } = useQuery({ ...branchQueries.all(), enabled: available })
   return useMemo(() => toLookup(available, isPending, data, (b) => b.name), [available, isPending, data])
 }

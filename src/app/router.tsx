@@ -4,6 +4,7 @@ import { AppLayout } from '@/components/layout/app-layout'
 import { MODULE_META, MODULES, type ModuleId } from '@/config/modules'
 import { HomeRedirect, RequireAuth, RequireModule } from '@/features/auth/guards'
 import { LoginPage } from '@/features/auth/login-page'
+import { BranchesPage } from '@/features/branches/branches-page'
 import { CentersPage } from '@/features/centers/centers-page'
 import { DashboardPage } from '@/features/dashboard/dashboard-page'
 import { NotFoundPage } from '@/features/errors/status-pages'
@@ -23,6 +24,7 @@ const MODULE_PAGES: Record<ModuleId, ComponentType> = {
   teachers: TeachersPage,
   finance: FinancePage,
   feedback: FeedbackPage,
+  branches: BranchesPage,
   settings: SettingsPage,
   centers: CentersPage,
 }

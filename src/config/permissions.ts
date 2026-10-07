@@ -22,7 +22,9 @@ export const PERMISSIONS: Record<ModuleId, Record<Role, Access>> = {
   finance: { super_admin: 'none', director: 'full', manager: 'view', sales: 'none', accountant: 'full' },
   // feedback.manage_own
   feedback: { super_admin: 'none', director: 'full', manager: 'full', sales: 'none', accountant: 'none' },
-  // center.manage_own — center profile, branches, courses, staff registration
+  // center.manage_own — the branch list is closed to everyone else
+  branches: { super_admin: 'none', director: 'full', manager: 'none', sales: 'none', accountant: 'none' },
+  // center.manage_own — center profile, courses, staff registration
   settings: { super_admin: 'none', director: 'full', manager: 'none', sales: 'none', accountant: 'none' },
   // super_admin only — onboarding of new centers
   centers: { super_admin: 'full', director: 'none', manager: 'none', sales: 'none', accountant: 'none' },

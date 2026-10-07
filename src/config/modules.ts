@@ -5,6 +5,7 @@ import {
   LayoutDashboard,
   MessageSquareText,
   Settings,
+  Store,
   UserRoundCheck,
   Wallet,
   type LucideIcon,
@@ -17,6 +18,7 @@ export const MODULES = [
   'teachers',
   'finance',
   'feedback',
+  'branches',
   'settings',
   'centers',
 ] as const
@@ -30,6 +32,7 @@ export const MODULE_META: Record<ModuleId, { path: string; icon: LucideIcon }> =
   teachers: { path: '/teachers', icon: UserRoundCheck },
   finance: { path: '/finance', icon: Wallet },
   feedback: { path: '/feedback', icon: MessageSquareText },
+  branches: { path: '/branches', icon: Store },
   settings: { path: '/settings', icon: Settings },
   centers: { path: '/centers', icon: Building2 },
 }

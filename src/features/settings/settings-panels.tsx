@@ -71,7 +71,7 @@ export function BranchPanel({ branch, onClose }: { branch: Branch | null; onClos
 
   return (
     <FormPanel
-      title={branch?.name ?? t.settings.addBranch}
+      title={branch?.name ?? t.branches.add}
       onClose={onClose}
       mutation={mutation}
       errorLabels={{

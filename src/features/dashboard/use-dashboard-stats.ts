@@ -46,7 +46,7 @@ export type DashboardStats = ReturnType<typeof useDashboardStats>
 export function useDashboardStats() {
   const t = useT()
   const available = {
-    branches: useCanAccess('settings'),
+    branches: useCanAccess('branches'),
     students: useCanAccess('students'),
     groups: useCanAccess('groups'),
     teachers: useCanAccess('teachers'),

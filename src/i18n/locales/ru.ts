@@ -77,6 +77,7 @@ export const ru = {
     teachers: 'Преподаватели',
     finance: 'Финансы',
     feedback: 'Отзывы',
+    branches: 'Филиалы',
     settings: 'Настройки',
     centers: 'Учебные центры',
   },
@@ -87,7 +88,8 @@ export const ru = {
     teachers: 'Преподаватели и их нагрузка',
     finance: 'Счета, оплаты и долги',
     feedback: 'Отзывы учеников и родителей',
-    settings: 'Центр, филиалы, курсы и сотрудники',
+    branches: 'Филиалы центра: контакты, ученики, преподаватели и группы',
+    settings: 'Центр, курсы и сотрудники',
     centers: 'Подключение центров и их руководителей',
   },
   nav: {
@@ -291,8 +293,6 @@ export const ru = {
     subscriptionTiers: {
       basic: 'Базовый',
     } as Record<string, string>,
-    branches: 'Филиалы',
-    addBranch: 'Добавить филиал',
     courses: 'Курсы',
     addCourse: 'Добавить курс',
     courseHint: 'Название курса должно быть уникальным в центре',
@@ -305,6 +305,9 @@ export const ru = {
     matrix: 'Права ролей',
     matrixHint: 'Кто к чему имеет доступ. Права проверяет сервер.',
     module: 'Раздел',
+  },
+  branches: {
+    add: 'Добавить филиал',
   },
   centers: {
     add: 'Подключить центр',

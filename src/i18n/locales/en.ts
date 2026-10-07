@@ -78,6 +78,7 @@ export const en: Dictionary = {
     teachers: 'Teachers',
     finance: 'Finance',
     feedback: 'Feedback',
+    branches: 'Branches',
     settings: 'Settings',
     centers: 'Learning centers',
   },
@@ -88,7 +89,8 @@ export const en: Dictionary = {
     teachers: 'Teachers and their workload',
     finance: 'Invoices, payments and debt',
     feedback: 'Feedback from students and parents',
-    settings: 'Center, branches, courses and staff',
+    branches: 'Center branches: contacts, students, teachers and groups',
+    settings: 'Center, courses and staff',
     centers: 'Onboarding centers and their directors',
   },
   nav: {
@@ -292,8 +294,6 @@ export const en: Dictionary = {
     subscriptionTiers: {
       basic: 'Basic',
     },
-    branches: 'Branches',
-    addBranch: 'Add branch',
     courses: 'Courses',
     addCourse: 'Add course',
     courseHint: 'Course names must be unique within the center',
@@ -306,6 +306,9 @@ export const en: Dictionary = {
     matrix: 'Role permissions',
     matrixHint: 'Who can access what. Permissions are enforced by the server.',
     module: 'Section',
+  },
+  branches: {
+    add: 'Add branch',
   },
   centers: {
     add: 'Add center',

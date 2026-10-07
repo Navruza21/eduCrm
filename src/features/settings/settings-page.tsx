@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { Pencil, Plus } from 'lucide-react'
 import { useState } from 'react'
-import { branchQueries, centerQueries, courseQueries } from '@/api/centers'
-import type { Branch, Center, Course } from '@/api/types'
+import { centerQueries, courseQueries } from '@/api/centers'
+import type { Center, Course } from '@/api/types'
 import { DataTable } from '@/components/data-table'
 import { DetailList } from '@/components/detail-list'
 import { PageHeader } from '@/components/page-header'
@@ -14,7 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useT } from '@/i18n'
 import { labelOf } from '@/lib/utils'
 import { PermissionsMatrix } from './permissions-matrix'
-import { BranchPanel, CenterPanel, CoursePanel } from './settings-panels'
+import { CenterPanel, CoursePanel } from './settings-panels'
 import { StaffRegisterCard } from './staff-register-card'
 
 export function SettingsPage() {
@@ -24,18 +24,14 @@ export function SettingsPage() {
     <>
       <PageHeader module="settings" />
       <CenterCard />
-      <Tabs defaultValue="branches">
+      <Tabs defaultValue="courses">
         <div className="overflow-x-auto overflow-y-hidden">
           <TabsList>
-            <TabsTrigger value="branches">{t.settings.branches}</TabsTrigger>
             <TabsTrigger value="courses">{t.settings.courses}</TabsTrigger>
             <TabsTrigger value="staff">{t.settings.staff}</TabsTrigger>
             <TabsTrigger value="matrix">{t.settings.matrix}</TabsTrigger>
           </TabsList>
         </div>
-        <TabsContent value="branches">
-          <BranchesSection />
-        </TabsContent>
         <TabsContent value="courses">
           <CoursesSection />
         </TabsContent>
@@ -94,46 +90,6 @@ function CenterCard() {
         </Card>
       )}
     </QueryView>
-  )
-}
-
-function BranchesSection() {
-  const t = useT()
-  const query = useQuery(branchQueries.all())
-  const [editing, setEditing] = useState<Branch | 'new' | null>(null)
-
-  return (
-    <section className="flex flex-col gap-3">
-      <Button className="self-end" onClick={() => setEditing('new')}>
-        <Plus data-icon="inline-start" />
-        {t.settings.addBranch}
-      </Button>
-      <QueryView query={query} skeleton="list">
-        {(branches) => (
-          <DataTable
-            rows={branches}
-            columns={[
-              { id: 'name', header: t.fields.name, cell: (b) => <span className="font-medium">{b.name}</span> },
-              { id: 'address', header: t.fields.address, cell: (b) => b.address || '—' },
-              { id: 'phone', header: t.fields.phone, cell: (b) => b.phone || '—', className: 'whitespace-nowrap' },
-              { id: 'contact', header: t.fields.contactPerson, cell: (b) => b.contact_person || '—' },
-              { id: 'status', header: t.fields.status, cell: (b) => <ActiveBadge active={b.is_active} /> },
-              {
-                id: 'actions',
-                header: '',
-                className: 'w-0 text-right',
-                cell: (b) => (
-                  <Button variant="ghost" size="icon-sm" aria-label={t.common.edit} onClick={() => setEditing(b)}>
-                    <Pencil />
-                  </Button>
-                ),
-              },
-            ]}
-          />
-        )}
-      </QueryView>
-      {editing && <BranchPanel branch={editing === 'new' ? null : editing} onClose={() => setEditing(null)} />}
-    </section>
   )
 }
 

@@ -1,7 +1,9 @@
 import { BadgeCheck, Building2, GraduationCap, type LucideIcon, UsersRound } from 'lucide-react'
+import { Link } from 'react-router'
 import type { Dashboard } from '@/api/types'
 import { Card, CardContent } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
+import { MODULE_META, type ModuleId } from '@/config/modules'
 import { useT } from '@/i18n'
 import { useFormat } from '@/i18n/use-format'
 import { cn } from '@/lib/utils'
@@ -37,6 +39,7 @@ export function KpiTiles({ summary, stats }: { summary: Dashboard; stats: Dashbo
     <div className={cn('grid grid-cols-2 gap-3', available.branches ? 'lg:grid-cols-4' : 'lg:grid-cols-3')}>
       {available.students && totals ? (
         <KpiTile
+          module="students"
           icon={GraduationCap}
           tone="blue"
           label={tiles.students}
@@ -54,6 +57,7 @@ export function KpiTiles({ summary, stats }: { summary: Dashboard; stats: Dashbo
 
       {available.teachers && totals && (
         <KpiTile
+          module="teachers"
           icon={BadgeCheck}
           tone="mint"
           label={tiles.teachers}
@@ -69,6 +73,7 @@ export function KpiTiles({ summary, stats }: { summary: Dashboard; stats: Dashbo
 
       {available.branches && totals && (
         <KpiTile
+          module="branches"
           icon={Building2}
           tone="sky"
           label={tiles.branches}
@@ -78,6 +83,7 @@ export function KpiTiles({ summary, stats }: { summary: Dashboard; stats: Dashbo
       )}
 
       <KpiTile
+        module={available.groups ? 'groups' : undefined}
         icon={UsersRound}
         tone="cyan"
         label={tiles.groups}
@@ -90,6 +96,7 @@ export function KpiTiles({ summary, stats }: { summary: Dashboard; stats: Dashbo
 }
 
 function KpiTile({
+  module,
   icon: Icon,
   tone,
   label,
@@ -97,6 +104,8 @@ function KpiTile({
   hint,
   meter,
 }: {
+  /** The tile opens this module's page — only pass one the role can open. */
+  module?: ModuleId
   icon: LucideIcon
   tone: keyof typeof TONES
   label: string
@@ -105,8 +114,8 @@ function KpiTile({
   /** Percent, 0–100: a thin bar under the value. */
   meter?: number
 }) {
-  return (
-    <Card className="transition-shadow hover:shadow-md">
+  const card = (
+    <Card className={cn('h-full', module && 'transition-shadow group-hover:shadow-md')}>
       <CardContent className="flex h-full flex-col gap-3">
         <div className="flex items-start justify-between gap-2">
           <span className="text-sm font-medium text-muted-foreground">{label}</span>
@@ -121,6 +130,16 @@ function KpiTile({
         </div>
       </CardContent>
     </Card>
+  )
+
+  if (!module) return card
+  return (
+    <Link
+      to={MODULE_META[module].path}
+      className="group rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+    >
+      {card}
+    </Link>
   )
 }
 
